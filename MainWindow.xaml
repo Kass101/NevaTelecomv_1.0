@@ -1,0 +1,13 @@
+﻿<Window x:Class="NevaTelecomv_1._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NevaTelecomv_1._0"
+        mc:Ignorable="d"
+        Title="NevaTelecom" Height="550" Width="1200" MinHeight="550" MinWidth="1200" Icon="Resources/logoWithBack.png">
+    <Grid>
+        <!--Элемент для навигации по приложению-->
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Window>

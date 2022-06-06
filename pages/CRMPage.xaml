@@ -1,0 +1,43 @@
+﻿<Page x:Class="NevaTelecomv_1._0.pages.CRMPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NevaTelecomv_1._0.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CRMPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Заявки" FontSize="24" Margin="10" Grid.Row="0"/>
+        <Button Content="Создать заявку" Name="AddOrder" Click="AddOrder_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" Padding="2" Grid.Row="0"/>
+        <DataGrid Grid.Row="1" x:Name="DGOrder" AutoGenerateColumns="False" CanUserResizeRows="False" IsReadOnly="True" FontSize="16">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фио абонента" Binding="{Binding Abonent.fio}"/>
+                <DataGridTextColumn Header="Телефон абонента" Binding="{Binding Abonent.phone}"/>
+                <DataGridTextColumn Header="№ заявки" Binding="{Binding num_order}"/>
+                <DataGridTextColumn Header="Статус заявки" Binding="{Binding name_status}"/>
+                <DataGridTextColumn Header="Тип проблемы" Binding="{Binding problem_type}"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding Manager.fio}"/>
+                <DataGridTemplateColumn x:Name="more">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="more" Click="more_Click" Content="Подробнее"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="edit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="edit" Click="edit_Click" Content="Редактировать"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

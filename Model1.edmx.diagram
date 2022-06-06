@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9a854ce368b8487b8e88df9a958ba74e" Name="Diagram1">
+        <EntityTypeShape EntityType="NevaTelecom1Model.Abonent" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.Manager" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.Oborud" Width="1.5" PointX="3.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.Order" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.Role" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.Servi" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.Status" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.Task" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.TypeProblem" Width="1.5" PointX="6" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.TypeServi" Width="1.5" PointX="6" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.VidServi" Width="1.5" PointX="3.75" PointY="18" IsExpanded="true" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Abonent_Oborud" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Abonent_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Order_Abonent" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Manager_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Order_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Order_Servis" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Order_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Order_TypeProblem" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Order_TypeServis" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Order_VidServis" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Task_Role1" ManuallyRouted="false" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_TypeServis_VidServis" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.Gender" Width="1.5" PointX="8.375" PointY="0.875" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Abonent_Gender" />
+        <EntityTypeShape EntityType="NevaTelecom1Model.DogovorType" Width="1.5" PointX="0.75" PointY="9.875" />
+        <AssociationConnector Association="NevaTelecom1Model.FK_Abonent_DogovorType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

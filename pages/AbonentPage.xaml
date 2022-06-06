@@ -1,0 +1,70 @@
+﻿<Page x:Class="NevaTelecomv_1._0.pages.AbonentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NevaTelecomv_1._0.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AbonentPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#7FB5DBFF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Ф.И.О абонента" FontSize="18" Grid.Row="0" Grid.Column="0" Margin=" 5 10 5 10" />
+            <TextBox Name="Tb_fio" SelectionChanged="Tb_fio_SelectionChanged" Grid.Row="0" Grid.Column="1" Margin=" 5 10 5 10"/>
+
+            <TextBlock Text="Лицевой счет" FontSize="18" Grid.Row="1" Grid.Column="0" Margin=" 5 5 5 10"/>
+            <TextBox Name="Tb_ls" SelectionChanged="Tb_ls_SelectionChanged" Grid.Row="1" Grid.Column="1" Margin=" 5 5 5 10"/>
+        </Grid>
+
+        <DataGrid Grid.Row="1" x:Name="DGridAbonent" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeRows="False" FontSize="18" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№ абонента" Binding="{Binding number}"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding fio}"/>
+                <DataGridTextColumn Header="№ договора" Binding="{Binding num_dogovor}"/>
+                <DataGridTextColumn Header="ЛС" Binding="{Binding ls}"/>
+                <DataGridTextColumn Header="Услуги" Binding="{Binding servis}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="more" Click="more_Click" Content="Подробнее"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="edit" Click="edit_Click" Content="Редактировать"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2" Margin="0 15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <RadioButton Name="BtnActiv" Content="Активные"  Checked="BtnActiv_Checked"  FontSize="18" Grid.Column="0" Margin="10 0 50 0" VerticalAlignment="Center"/>
+            <RadioButton Name="BtnUnActiv" Content="Неактивные" Checked="BtnUnActiv_Checked"  FontSize="18" Grid.Column="1" Margin="10 0 50 0" VerticalAlignment="Center"/>
+            <RadioButton Name="BtnAll" Content="Все" Checked="BtnAll_Checked" FontSize="18" Grid.Column="2" VerticalAlignment="Center"/>
+            <Button Content="Добавить" Name="Btn_Add_exit" Click="Btn_Add_exit_Click" HorizontalAlignment="Right" Grid.Column="3" Padding="5" Margin="10 0"/>
+        </Grid>
+    </Grid>
+</Page>

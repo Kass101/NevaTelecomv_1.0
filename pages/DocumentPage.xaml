@@ -1,0 +1,41 @@
+﻿<Page x:Class="NevaTelecomv_1._0.pages.DocumentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NevaTelecomv_1._0.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DocumentPage">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ToolBarTray Background="Black" Grid.Row="0" Width="21cm">
+                <ToolBar Background="#FFEAEAEA">
+                    <Button Click="new_ButonClick" FontSize="16" 
+                            FontWeight="Bold">New</Button>
+                    <Button Click="open_ButonClick" FontSize="16"
+                            FontWeight="Bold">Open</Button>
+                    <Button Click="save_ButonClick" FontSize="16"
+                            FontWeight="Bold">Save</Button>
+                    <Button Click="print_ButonClick" FontSize="16"
+                            FontWeight="Bold">Print</Button>
+                </ToolBar>
+                <ToolBar FontFamily="Times New Roman" Background="#FFEAEAEA">
+                    <Button FontWeight="Bold" Command="EditingCommands.ToggleBold"
+                            FontSize="16" Foreground="Black">B</Button>
+                    <Button FontStyle="Italic" Command="EditingCommands.ToggleItalic"
+                            FontSize="16" Foreground="Black">I</Button>
+                    <Button Command="EditingCommands.ToggleUnderline" FontSize="16"
+                            Foreground="Black">U</Button>
+                </ToolBar>
+            </ToolBarTray>
+            
+            <RichTextBox x:Name="richTextBox" Grid.Row="1" BorderBrush="Black" BorderThickness="2" Width="21cm"/>
+        </Grid>
+    </Grid>
+</Page>

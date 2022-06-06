@@ -1,0 +1,959 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище NevaTelecom1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Abonent">
+          <Key>
+            <PropertyRef Name="id_abon" />
+          </Key>
+          <Property Name="id_abon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fio" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="birth" Type="datetime" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="address_reg" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="address_live" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="pasport" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="code_otdel" Type="nchar" MaxLength="7" Nullable="false" />
+          <Property Name="department" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="date_issue" Type="datetime" />
+          <Property Name="num_dogovor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_dogovor" Type="datetime" />
+          <Property Name="dogovor_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="reason_end" Type="text" />
+          <Property Name="ls" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="servis" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_end" Type="datetime" />
+          <Property Name="num_of_oborud" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DogovorType">
+          <Key>
+            <PropertyRef Name="dogovor_type" />
+          </Key>
+          <Property Name="dogovor_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="gender" />
+          </Key>
+          <Property Name="gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="id_manager" />
+          </Key>
+          <Property Name="id_manager" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fio" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="name_role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="manager_num" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="pass" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Oborud">
+          <Key>
+            <PropertyRef Name="serial_num" />
+          </Key>
+          <Property Name="serial_num" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_abon" Type="int" Nullable="false" />
+          <Property Name="num_order" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="data_create" Type="date" Nullable="false" />
+          <Property Name="name_serv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_vid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="describe" Type="text" />
+          <Property Name="date_end" Type="date" />
+          <Property Name="problem_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_manager" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="name_role" />
+          </Key>
+          <Property Name="name_role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servis">
+          <Key>
+            <PropertyRef Name="name_serv" />
+          </Key>
+          <Property Name="name_serv" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="name_status" />
+          </Key>
+          <Property Name="name_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="id_task" />
+          </Key>
+          <Property Name="id_task" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="task" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeProblem">
+          <Key>
+            <PropertyRef Name="problem_type" />
+          </Key>
+          <Property Name="problem_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeServis">
+          <Key>
+            <PropertyRef Name="name_type" />
+          </Key>
+          <Property Name="name_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_vid" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VidServis">
+          <Key>
+            <PropertyRef Name="name_vid" />
+          </Key>
+          <Property Name="name_vid" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Abonent_DogovorType">
+          <End Role="DogovorType" Type="Self.DogovorType" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogovorType">
+              <PropertyRef Name="dogovor_type" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="dogovor_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Abonent_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="gender" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Abonent_Oborud">
+          <End Role="Oborud" Type="Self.Oborud" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oborud">
+              <PropertyRef Name="serial_num" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="num_of_oborud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Abonent_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="name_role" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="name_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="name_role" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="name_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Abonent">
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonent">
+              <PropertyRef Name="id_abon" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_abon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="id_manager" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Servis">
+          <End Role="Servis" Type="Self.Servis" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servis">
+              <PropertyRef Name="name_serv" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="name_serv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="name_status" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="name_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypeProblem">
+          <End Role="TypeProblem" Type="Self.TypeProblem" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeProblem">
+              <PropertyRef Name="problem_type" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="problem_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypeServis">
+          <End Role="TypeServis" Type="Self.TypeServis" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeServis">
+              <PropertyRef Name="name_type" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="name_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_VidServis">
+          <End Role="VidServis" Type="Self.VidServis" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VidServis">
+              <PropertyRef Name="name_vid" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="name_vid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_Role1">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="name_role" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="name_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeServis_VidServis">
+          <End Role="VidServis" Type="Self.VidServis" Multiplicity="1" />
+          <End Role="TypeServis" Type="Self.TypeServis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VidServis">
+              <PropertyRef Name="name_vid" />
+            </Principal>
+            <Dependent Role="TypeServis">
+              <PropertyRef Name="name_vid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище NevaTelecom1ModelContainer">
+          <EntitySet Name="Abonent" EntityType="Self.Abonent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DogovorType" EntityType="Self.DogovorType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oborud" EntityType="Self.Oborud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servis" EntityType="Self.Servis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeProblem" EntityType="Self.TypeProblem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeServis" EntityType="Self.TypeServis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VidServis" EntityType="Self.VidServis" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Abonent_DogovorType" Association="Self.FK_Abonent_DogovorType">
+            <End Role="DogovorType" EntitySet="DogovorType" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Abonent_Gender" Association="Self.FK_Abonent_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Abonent_Oborud" Association="Self.FK_Abonent_Oborud">
+            <End Role="Oborud" EntitySet="Oborud" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Abonent_Role" Association="Self.FK_Abonent_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Abonent" EntitySet="Abonent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_Role" Association="Self.FK_Manager_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Manager" EntitySet="Manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Abonent" Association="Self.FK_Order_Abonent">
+            <End Role="Abonent" EntitySet="Abonent" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Manager" Association="Self.FK_Order_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Servis" Association="Self.FK_Order_Servis">
+            <End Role="Servis" EntitySet="Servis" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Status" Association="Self.FK_Order_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypeProblem" Association="Self.FK_Order_TypeProblem">
+            <End Role="TypeProblem" EntitySet="TypeProblem" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypeServis" Association="Self.FK_Order_TypeServis">
+            <End Role="TypeServis" EntitySet="TypeServis" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_VidServis" Association="Self.FK_Order_VidServis">
+            <End Role="VidServis" EntitySet="VidServis" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_Role1" Association="Self.FK_Task_Role1">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Task" EntitySet="Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeServis_VidServis" Association="Self.FK_TypeServis_VidServis">
+            <End Role="VidServis" EntitySet="VidServis" />
+            <End Role="TypeServis" EntitySet="TypeServis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NevaTelecom1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Abonent">
+          <Key>
+            <PropertyRef Name="id_abon" />
+          </Key>
+          <Property Name="id_abon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="birth" Type="DateTime" Precision="3" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address_reg" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address_live" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pasport" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="code_otdel" Type="String" MaxLength="7" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="department" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_issue" Type="DateTime" Precision="3" />
+          <Property Name="num_dogovor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_dogovor" Type="DateTime" Precision="3" />
+          <Property Name="dogovor_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="reason_end" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ls" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="servis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_end" Type="DateTime" Precision="3" />
+          <Property Name="num_of_oborud" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Oborud" Relationship="Self.FK_Abonent_Oborud" FromRole="Abonent" ToRole="Oborud" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Abonent_Role" FromRole="Abonent" ToRole="Role" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Abonent" FromRole="Abonent" ToRole="Order" />
+          <NavigationProperty Name="Gender1" Relationship="NevaTelecom1Model.FK_Abonent_Gender" FromRole="Abonent" ToRole="Gender" />
+          <NavigationProperty Name="DogovorType" Relationship="NevaTelecom1Model.FK_Abonent_DogovorType" FromRole="Abonent" ToRole="DogovorType" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="id_manager" />
+          </Key>
+          <Property Name="id_manager" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="manager_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Manager_Role" FromRole="Manager" ToRole="Role" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Manager" FromRole="Manager" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Oborud">
+          <Key>
+            <PropertyRef Name="serial_num" />
+          </Key>
+          <Property Name="serial_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Abonents" Relationship="Self.FK_Abonent_Oborud" FromRole="Oborud" ToRole="Abonent" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_abon" Type="Int32" Nullable="false" />
+          <Property Name="num_order" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="data_create" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="name_serv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_vid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="date_end" Type="DateTime" Precision="0" />
+          <Property Name="problem_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_manager" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Abonent" Relationship="Self.FK_Order_Abonent" FromRole="Order" ToRole="Abonent" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_Order_Manager" FromRole="Order" ToRole="Manager" />
+          <NavigationProperty Name="Servi" Relationship="Self.FK_Order_Servis" FromRole="Order" ToRole="Servis" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Order_Status" FromRole="Order" ToRole="Status" />
+          <NavigationProperty Name="TypeProblem" Relationship="Self.FK_Order_TypeProblem" FromRole="Order" ToRole="TypeProblem" />
+          <NavigationProperty Name="TypeServi" Relationship="Self.FK_Order_TypeServis" FromRole="Order" ToRole="TypeServis" />
+          <NavigationProperty Name="VidServi" Relationship="Self.FK_Order_VidServis" FromRole="Order" ToRole="VidServis" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="name_role" />
+          </Key>
+          <Property Name="name_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Abonents" Relationship="Self.FK_Abonent_Role" FromRole="Role" ToRole="Abonent" />
+          <NavigationProperty Name="Managers" Relationship="Self.FK_Manager_Role" FromRole="Role" ToRole="Manager" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK_Task_Role1" FromRole="Role" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Servi">
+          <Key>
+            <PropertyRef Name="name_serv" />
+          </Key>
+          <Property Name="name_serv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Servis" FromRole="Servis" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="name_status" />
+          </Key>
+          <Property Name="name_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Status" FromRole="Status" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="id_task" />
+          </Key>
+          <Property Name="id_task" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="task1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Task_Role1" FromRole="Task" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="TypeProblem">
+          <Key>
+            <PropertyRef Name="problem_type" />
+          </Key>
+          <Property Name="problem_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_TypeProblem" FromRole="TypeProblem" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="TypeServi">
+          <Key>
+            <PropertyRef Name="name_type" />
+          </Key>
+          <Property Name="name_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_vid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_TypeServis" FromRole="TypeServis" ToRole="Order" />
+          <NavigationProperty Name="VidServi" Relationship="Self.FK_TypeServis_VidServis" FromRole="TypeServis" ToRole="VidServis" />
+        </EntityType>
+        <EntityType Name="VidServi">
+          <Key>
+            <PropertyRef Name="name_vid" />
+          </Key>
+          <Property Name="name_vid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_VidServis" FromRole="VidServis" ToRole="Order" />
+          <NavigationProperty Name="TypeServis" Relationship="Self.FK_TypeServis_VidServis" FromRole="VidServis" ToRole="TypeServis" />
+        </EntityType>
+        <Association Name="FK_Abonent_Oborud">
+          <End Role="Oborud" Type="Self.Oborud" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oborud">
+              <PropertyRef Name="serial_num" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="num_of_oborud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Abonent_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="name_role" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="name_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Abonent">
+          <End Role="Abonent" Type="Self.Abonent" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Abonent">
+              <PropertyRef Name="id_abon" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_abon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="name_role" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="name_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="id_manager" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="id_manager" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Servis">
+          <End Role="Servis" Type="Self.Servi" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servis">
+              <PropertyRef Name="name_serv" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="name_serv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="name_status" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="name_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypeProblem">
+          <End Role="TypeProblem" Type="Self.TypeProblem" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeProblem">
+              <PropertyRef Name="problem_type" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="problem_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TypeServis">
+          <End Role="TypeServis" Type="Self.TypeServi" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeServis">
+              <PropertyRef Name="name_type" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="name_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_VidServis">
+          <End Role="VidServis" Type="Self.VidServi" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VidServis">
+              <PropertyRef Name="name_vid" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="name_vid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_Role1">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="name_role" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="name_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeServis_VidServis">
+          <End Role="VidServis" Type="Self.VidServi" Multiplicity="1" />
+          <End Role="TypeServis" Type="Self.TypeServi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VidServis">
+              <PropertyRef Name="name_vid" />
+            </Principal>
+            <Dependent Role="TypeServis">
+              <PropertyRef Name="name_vid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NevaTelecom1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abonents" EntityType="Self.Abonent" />
+          <EntitySet Name="Managers" EntityType="Self.Manager" />
+          <EntitySet Name="Oboruds" EntityType="Self.Oborud" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Servis" EntityType="Self.Servi" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tasks" EntityType="Self.Task" />
+          <EntitySet Name="TypeProblems" EntityType="Self.TypeProblem" />
+          <EntitySet Name="TypeServis" EntityType="Self.TypeServi" />
+          <EntitySet Name="VidServis" EntityType="Self.VidServi" />
+          <AssociationSet Name="FK_Abonent_Oborud" Association="Self.FK_Abonent_Oborud">
+            <End Role="Oborud" EntitySet="Oboruds" />
+            <End Role="Abonent" EntitySet="Abonents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Abonent_Role" Association="Self.FK_Abonent_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Abonent" EntitySet="Abonents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Abonent" Association="Self.FK_Order_Abonent">
+            <End Role="Abonent" EntitySet="Abonents" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_Role" Association="Self.FK_Manager_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Manager" EntitySet="Managers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Manager" Association="Self.FK_Order_Manager">
+            <End Role="Manager" EntitySet="Managers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Servis" Association="Self.FK_Order_Servis">
+            <End Role="Servis" EntitySet="Servis" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Status" Association="Self.FK_Order_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypeProblem" Association="Self.FK_Order_TypeProblem">
+            <End Role="TypeProblem" EntitySet="TypeProblems" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TypeServis" Association="Self.FK_Order_TypeServis">
+            <End Role="TypeServis" EntitySet="TypeServis" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_VidServis" Association="Self.FK_Order_VidServis">
+            <End Role="VidServis" EntitySet="VidServis" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_Role1" Association="Self.FK_Task_Role1">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeServis_VidServis" Association="Self.FK_TypeServis_VidServis">
+            <End Role="VidServis" EntitySet="VidServis" />
+            <End Role="TypeServis" EntitySet="TypeServis" />
+          </AssociationSet>
+          <EntitySet Name="Genders" EntityType="NevaTelecom1Model.Gender" />
+          <AssociationSet Name="FK_Abonent_Gender" Association="NevaTelecom1Model.FK_Abonent_Gender">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Abonent" EntitySet="Abonents" />
+          </AssociationSet>
+          <EntitySet Name="DogovorTypes" EntityType="NevaTelecom1Model.DogovorType" />
+          <AssociationSet Name="FK_Abonent_DogovorType" Association="NevaTelecom1Model.FK_Abonent_DogovorType">
+            <End Role="DogovorType" EntitySet="DogovorTypes" />
+            <End Role="Abonent" EntitySet="Abonents" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="gender1" />
+          </Key>
+          <Property Name="gender1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Abonents" Relationship="NevaTelecom1Model.FK_Abonent_Gender" FromRole="Gender" ToRole="Abonent" />
+        </EntityType>
+        <Association Name="FK_Abonent_Gender">
+          <End Type="NevaTelecom1Model.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="NevaTelecom1Model.Abonent" Role="Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="gender1" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DogovorType">
+          <Key>
+            <PropertyRef Name="dogovor_type" />
+          </Key>
+          <Property Name="dogovor_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Abonents" Relationship="NevaTelecom1Model.FK_Abonent_DogovorType" FromRole="DogovorType" ToRole="Abonent" />
+        </EntityType>
+        <Association Name="FK_Abonent_DogovorType">
+          <End Type="NevaTelecom1Model.DogovorType" Role="DogovorType" Multiplicity="1" />
+          <End Type="NevaTelecom1Model.Abonent" Role="Abonent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DogovorType">
+              <PropertyRef Name="dogovor_type" />
+            </Principal>
+            <Dependent Role="Abonent">
+              <PropertyRef Name="dogovor_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище NevaTelecom1ModelContainer" CdmEntityContainer="NevaTelecom1Entities">
+          <EntitySetMapping Name="Abonents">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Abonent">
+              <MappingFragment StoreEntitySet="Abonent">
+                <ScalarProperty Name="id_abon" ColumnName="id_abon" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birth" ColumnName="birth" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address_reg" ColumnName="address_reg" />
+                <ScalarProperty Name="address_live" ColumnName="address_live" />
+                <ScalarProperty Name="pasport" ColumnName="pasport" />
+                <ScalarProperty Name="code_otdel" ColumnName="code_otdel" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="date_issue" ColumnName="date_issue" />
+                <ScalarProperty Name="num_dogovor" ColumnName="num_dogovor" />
+                <ScalarProperty Name="date_dogovor" ColumnName="date_dogovor" />
+                <ScalarProperty Name="dogovor_type" ColumnName="dogovor_type" />
+                <ScalarProperty Name="reason_end" ColumnName="reason_end" />
+                <ScalarProperty Name="ls" ColumnName="ls" />
+                <ScalarProperty Name="servis" ColumnName="servis" />
+                <ScalarProperty Name="date_end" ColumnName="date_end" />
+                <ScalarProperty Name="num_of_oborud" ColumnName="num_of_oborud" />
+                <ScalarProperty Name="name_role" ColumnName="name_role" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="id_manager" ColumnName="id_manager" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+                <ScalarProperty Name="name_role" ColumnName="name_role" />
+                <ScalarProperty Name="manager_num" ColumnName="manager_num" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="login" ColumnName="login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oboruds">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Oborud">
+              <MappingFragment StoreEntitySet="Oborud">
+                <ScalarProperty Name="serial_num" ColumnName="serial_num" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_abon" ColumnName="id_abon" />
+                <ScalarProperty Name="num_order" ColumnName="num_order" />
+                <ScalarProperty Name="data_create" ColumnName="data_create" />
+                <ScalarProperty Name="name_serv" ColumnName="name_serv" />
+                <ScalarProperty Name="name_vid" ColumnName="name_vid" />
+                <ScalarProperty Name="name_type" ColumnName="name_type" />
+                <ScalarProperty Name="name_status" ColumnName="name_status" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="date_end" ColumnName="date_end" />
+                <ScalarProperty Name="problem_type" ColumnName="problem_type" />
+                <ScalarProperty Name="id_manager" ColumnName="id_manager" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="name_role" ColumnName="name_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servis">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Servi">
+              <MappingFragment StoreEntitySet="Servis">
+                <ScalarProperty Name="name_serv" ColumnName="name_serv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="name_status" ColumnName="name_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Task">
+              <MappingFragment StoreEntitySet="Task">
+                <ScalarProperty Name="id_task" ColumnName="id_task" />
+                <ScalarProperty Name="name_role" ColumnName="name_role" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="task1" ColumnName="task" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeProblems">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.TypeProblem">
+              <MappingFragment StoreEntitySet="TypeProblem">
+                <ScalarProperty Name="problem_type" ColumnName="problem_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeServis">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.TypeServi">
+              <MappingFragment StoreEntitySet="TypeServis">
+                <ScalarProperty Name="name_type" ColumnName="name_type" />
+                <ScalarProperty Name="name_vid" ColumnName="name_vid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VidServis">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.VidServi">
+              <MappingFragment StoreEntitySet="VidServis">
+                <ScalarProperty Name="name_vid" ColumnName="name_vid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="gender1" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogovorTypes">
+            <EntityTypeMapping TypeName="NevaTelecom1Model.DogovorType">
+              <MappingFragment StoreEntitySet="DogovorType">
+                <ScalarProperty Name="dogovor_type" ColumnName="dogovor_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
