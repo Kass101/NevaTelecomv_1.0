@@ -14,7 +14,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <!--блок с функциями-->
             <ToolBarTray Background="Black" Grid.Row="0" Width="21cm">
+                <!--блок с редактированием текста-->
                 <ToolBar Background="#FFEAEAEA">
                     <Button Click="new_ButonClick" FontSize="16" 
                             FontWeight="Bold">New</Button>
@@ -26,15 +28,12 @@
                             FontWeight="Bold">Print</Button>
                 </ToolBar>
                 <ToolBar FontFamily="Times New Roman" Background="#FFEAEAEA">
-                    <Button FontWeight="Bold" Command="EditingCommands.ToggleBold"
-                            FontSize="16" Foreground="Black">B</Button>
-                    <Button FontStyle="Italic" Command="EditingCommands.ToggleItalic"
-                            FontSize="16" Foreground="Black">I</Button>
-                    <Button Command="EditingCommands.ToggleUnderline" FontSize="16"
-                            Foreground="Black">U</Button>
+                    <Button FontWeight="Bold" Command="EditingCommands.ToggleBold" FontSize="16" Foreground="Black">B</Button>
+                    <Button FontStyle="Italic" Command="EditingCommands.ToggleItalic" FontSize="16" Foreground="Black">I</Button>
+                    <Button Command="EditingCommands.ToggleUnderline" FontSize="16" Foreground="Black">U</Button>
                 </ToolBar>
             </ToolBarTray>
-            
+            <!--блок для отображения текста-->
             <RichTextBox x:Name="richTextBox" Grid.Row="1" BorderBrush="Black" BorderThickness="2" Width="21cm"/>
         </Grid>
     </Grid>

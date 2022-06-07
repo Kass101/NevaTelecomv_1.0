@@ -26,20 +26,23 @@ namespace NevaTelecomv_1._0.pages
         }
         private void BtnCheckOrder_Click(object sender, RoutedEventArgs e)
         {
+            
             using (var db = new NevaTelecom1Entities())
             {
+                //поиск на совпадение введенных данных в БД
                 var abonent = db.Abonents.AsNoTracking().FirstOrDefault(p => p.phone == phone.Text && fio.Text == p.fio);
 
                 if (abonent != null)
                 {
                     GeneralPage.Global.id_abonenta = abonent.id_abon;
+                    //переход на стр добавления, передаем пустой объект 
                     Navigation1.MainFrame1.Navigate(new AddEditOrder(null));
                 }
                 else
                     MessageBox.Show("Абонент не найден");
             }
         }
-
+        //обработчик события на кнопку назад
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Navigation1.MainFrame1.Navigate(new CRMPage());

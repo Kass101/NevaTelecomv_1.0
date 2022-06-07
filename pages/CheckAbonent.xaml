@@ -18,10 +18,10 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-
+        <!--блок для ввода телефона позвонившего абонента-->
         <TextBlock Text="Номер телефона: " FontSize="20" Grid.Row="0" Grid.Column="0"/>
         <TextBox Text="{Binding Abonent.phone}" Name="phone" HorizontalAlignment="Left" MaxLength="50" FontSize="20" FontWeight="Normal" Grid.Row="0" Grid.Column="1"/>
-
+        <!--блок для ввода фио позвонившего абонента-->
         <TextBlock Text="ФИО абонента: " FontSize="20" Grid.Row="1" Grid.Column="0"/>
         <TextBox Text="{Binding Abonent.fio}" Name="fio" HorizontalAlignment="Left" MaxLength="150" FontSize="20" FontWeight="Normal" Grid.Row="1" Grid.Column="1"/>
 
@@ -29,6 +29,5 @@
             <Button Name="BtnBack" Click="BtnBack_Click" Content="Назад" Padding="3"/>
             <Button Name="BtnCheckOrder" Click="BtnCheckOrder_Click" Content="Проверка" Padding="3" Margin="10"/>
         </StackPanel>
-
     </Grid>
 </Page>

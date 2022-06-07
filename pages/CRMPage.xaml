@@ -14,7 +14,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Заявки" FontSize="24" Margin="10" Grid.Row="0"/>
+        <!--кнопка создания заявки-->
         <Button Content="Создать заявку" Name="AddOrder" Click="AddOrder_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" Padding="2" Grid.Row="0"/>
+        <!--таблица с отображением заявок-->
         <DataGrid Grid.Row="1" x:Name="DGOrder" AutoGenerateColumns="False" CanUserResizeRows="False" IsReadOnly="True" FontSize="16">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фио абонента" Binding="{Binding Abonent.fio}"/>
@@ -23,6 +25,7 @@
                 <DataGridTextColumn Header="Статус заявки" Binding="{Binding name_status}"/>
                 <DataGridTextColumn Header="Тип проблемы" Binding="{Binding problem_type}"/>
                 <DataGridTextColumn Header="Сотрудник" Binding="{Binding Manager.fio}"/>
+                <!--кнопка для всех записей таблицы-->
                 <DataGridTemplateColumn x:Name="more">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -30,6 +33,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <!--кнопка для всех записей таблицы-->
                 <DataGridTemplateColumn x:Name="edit">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

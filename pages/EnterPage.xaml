@@ -26,15 +26,17 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
+            <!--блок ввода логина пользователя-->
             <Image Grid.Row="0" Grid.Column="0" Source="/NevaTelecomv_1.0;component/Resources/Login.png" Margin="0 10"/>
             <TextBox Name="log" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MaxLength="20"/>
-
+            <!--блок ввода пароля пользователя-->
             <Image  Grid.Row="1" Grid.Column="0" Source="/NevaTelecomv_1.0;component/Resources/password.png" Margin="0 10"/>
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
                 <Grid>
                     <TextBox Name="text_pass" HorizontalAlignment="Left" Visibility="Hidden" MaxLength="20"/>
                     <PasswordBox Name="pass" HorizontalAlignment="Left" Visibility="Visible" MaxLength="20"/>
                 </Grid>
+                <!--кнопка показать пароль-->
                 <Button Name="Show" Click="Show_Click" Grid.Row="1" Grid.Column="1" Width="40" Height="40">
                     <Button.Background>
                         <ImageBrush ImageSource="/NevaTelecomv_1.0;component/Resources/view.png"/>
@@ -44,10 +46,8 @@
                     </Button.BorderBrush>
                 </Button>
             </StackPanel>
-
-
         </Grid>
-
+        <!--кнопка входа в систему-->
         <Button IsDefault="True" Width="200" Name="enter" Click="enter_Click" Content="Вход" Grid.Row="2" Padding="5" Margin="0 10"/>
     </Grid>
 </Page>
