@@ -25,28 +25,35 @@ namespace NevaTelecomv_1._0.pages
         public AddEditAbonent(Abonent selectedAbonent)
         {
             InitializeComponent();
+            //если переданный объект не пустой, значит происходит редактирование
             if (selectedAbonent != null)
             {
                 _currentAbonent = selectedAbonent;
+                //отключаем кнопку генерации номера договора
                 gen_num.Visibility = Visibility.Hidden;
             }
+            //если переданный объект пустой, значит происходит добавление
             if (selectedAbonent == null)
             {
+                //присваеваем сегоднняшнее число дате создания договора
                 date_dogovor.Text = DateTime.Now.ToShortDateString();
                 _currentAbonent.date_dogovor = DateTime.Now;
-            }    
-
+            }
+            //привязываем полученные данные с полями
             DataContext = _currentAbonent;
+            //задаем значения для выпадающих списков
             Cb_gender.ItemsSource = NevaTelecom1Entities.GetContext().Genders.ToList();
             Cb_dogovortype.ItemsSource = NevaTelecom1Entities.GetContext().DogovorTypes.ToList();
             Cb_dogovortype.ItemsSource = NevaTelecom1Entities.GetContext().DogovorTypes.ToList();
             Cb_oborud.ItemsSource = NevaTelecom1Entities.GetContext().Oboruds.ToList();
         }
-
+        //кнопка сохранения данных
         private void Btn_save_Click(object sender, RoutedEventArgs e)
         {
+            //контейнер ошибок
             StringBuilder errors = new StringBuilder();
 
+            //проверка введенных данных 
             if (string.IsNullOrWhiteSpace(_currentAbonent.number) )
                 errors.AppendLine("Введите № абонента");             
 
@@ -121,18 +128,19 @@ namespace NevaTelecomv_1._0.pages
                     errors.AppendLine("Введите причину расторжения");
             }
 
-
-                if (errors.Length > 0)
+            //если в контейнере есть ошибки то выводим их
+            if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
                 return;
             }
 
+            //добавляем данные объекта в таблицу бд
             if (_currentAbonent.id_abon == 0)
             {
                 NevaTelecom1Entities.GetContext().Abonents.Add(_currentAbonent);
             }
-                
+            //конструктор для отлавливания системных ошибок (не было сбоя системы)    
             try
             {
                 NevaTelecom1Entities.GetContext().SaveChanges();
@@ -144,12 +152,12 @@ namespace NevaTelecomv_1._0.pages
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        //кнопка дляперехода на стр абонентов
         private void Btn_back_Click(object sender, RoutedEventArgs e)
         {
             Navigation1.MainFrame1.Navigate(new pages.AbonentPage());
         }
-
+        //кнопка генерации номера договора
         private void gen_num_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(_currentAbonent.number))

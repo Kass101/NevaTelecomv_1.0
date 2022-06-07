@@ -100,7 +100,7 @@ namespace NevaTelecomv_1._0.pages
             _curentOrder.data_create = DateTime.Now;
             _curentOrder.id_abon = GeneralPage.Global.id_abonenta;
 
-            //проверка данныех (если не введены)
+            //проверка данных (если не введены)
             if (_curentOrder.Servi == null)
                 error.AppendLine("Выбeрите услугу");
 

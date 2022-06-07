@@ -24,13 +24,14 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
+            <!--блок для поиска данных по фамилии абонента-->
             <TextBlock Text="Ф.И.О абонента" FontSize="18" Grid.Row="0" Grid.Column="0" Margin=" 5 10 5 10" />
             <TextBox Name="Tb_fio" SelectionChanged="Tb_fio_SelectionChanged" Grid.Row="0" Grid.Column="1" Margin=" 5 10 5 10"/>
-
+            <!--блок для поиска данных по лицевому счету абонента-->
             <TextBlock Text="Лицевой счет" FontSize="18" Grid.Row="1" Grid.Column="0" Margin=" 5 5 5 10"/>
             <TextBox Name="Tb_ls" SelectionChanged="Tb_ls_SelectionChanged" Grid.Row="1" Grid.Column="1" Margin=" 5 5 5 10"/>
         </Grid>
-
+        <!--таблица с отображением данных об абонентах-->
         <DataGrid Grid.Row="1" x:Name="DGridAbonent" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeRows="False" FontSize="18" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№ абонента" Binding="{Binding number}"/>
@@ -38,6 +39,7 @@
                 <DataGridTextColumn Header="№ договора" Binding="{Binding num_dogovor}"/>
                 <DataGridTextColumn Header="ЛС" Binding="{Binding ls}"/>
                 <DataGridTextColumn Header="Услуги" Binding="{Binding servis}"/>
+                <!--кнопка подроднее для всех записей-->
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -45,6 +47,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <!--кнопка редактировать для всех записей-->
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -61,9 +64,11 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <!--блок для фильтрации данных-->
             <RadioButton Name="BtnActiv" Content="Активные"  Checked="BtnActiv_Checked"  FontSize="18" Grid.Column="0" Margin="10 0 50 0" VerticalAlignment="Center"/>
             <RadioButton Name="BtnUnActiv" Content="Неактивные" Checked="BtnUnActiv_Checked"  FontSize="18" Grid.Column="1" Margin="10 0 50 0" VerticalAlignment="Center"/>
             <RadioButton Name="BtnAll" Content="Все" Checked="BtnAll_Checked" FontSize="18" Grid.Column="2" VerticalAlignment="Center"/>
+            <!--кнопка добавления абонента-->
             <Button Content="Добавить" Name="Btn_Add_exit" Click="Btn_Add_exit_Click" HorizontalAlignment="Right" Grid.Column="3" Padding="5" Margin="10 0"/>
         </Grid>
     </Grid>

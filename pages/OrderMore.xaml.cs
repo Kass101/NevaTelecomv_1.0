@@ -23,10 +23,13 @@ namespace NevaTelecomv_1._0.pages
         private Order _curentOrder = new Order();
         public OrderMore(Order selectedOrder)
         {
+                
             InitializeComponent();
+            //если переданный объект не пустой, значит происходит редактирование
             if (selectedOrder != null)
+                //присваиваем _curentOrder переданные данные
                 _curentOrder = selectedOrder;
-
+            //привязываем полученные данные с полями
             DataContext = _curentOrder;
             
         }
