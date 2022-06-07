@@ -269,6 +269,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\key.png" />
     <Resource Include="Resources\view.png" />
     <Resource Include="Resources\hide.png" />
   </ItemGroup>

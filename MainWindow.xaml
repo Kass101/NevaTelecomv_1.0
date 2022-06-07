@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NevaTelecomv_1._0"
         mc:Ignorable="d"
-        Title="NevaTelecom" Height="550" Width="1200" MinHeight="550" MinWidth="1200" Icon="Resources/logoWithBack.png">
+        Title="NevaTelecom" Height="600" Width="1200" MinHeight="600" MinWidth="1200" Icon="Resources/logoWithBack.png">
     <Grid>
         <!--Элемент для навигации по приложению-->
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
