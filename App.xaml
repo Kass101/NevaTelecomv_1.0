@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:NevaTelecomv_1._0"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <!--Стили для элемента "DataGrid"-->
         <Style TargetType="DataGrid">
             <Setter Property="IsReadOnly" Value="True"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>
@@ -11,6 +12,7 @@
             <Setter Property="FontFamily" Value="Candara"/>
             <Setter Property="CanUserResizeRows" Value="False"/>
         </Style>
+        <!--Стили для элемента "Button"-->
         <Style TargetType="Button">
             <Setter Property="Background" Value="#4A67F7"/>
             <Setter Property="Foreground" Value="White"/>
@@ -21,11 +23,13 @@
             <Setter Property="FontFamily" Value="Candara"/>
             <Setter Property="Padding" Value="10"/>
         </Style>
+        <!--Стили для элемента "TextBlock"-->
         <Style TargetType="TextBlock">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
             <Setter Property="FontFamily" Value="Candara"/>
         </Style>
+        <!--Стили для элемента "TextBox"-->
         <Style TargetType="TextBox">
             <Setter Property="Foreground" Value="#FF243238"/>
             <Setter Property="FontSize" Value="22"/>
@@ -35,6 +39,7 @@
             <Setter Property="Margin" Value="16"/>
             <Setter Property="Width" Value="350"/>
         </Style>
+        <!--Стили для элемента "PasswordBox"-->
         <Style TargetType="PasswordBox">
             <Setter Property="Foreground" Value="#FF243238"/>
             <Setter Property="FontSize" Value="22"/>
@@ -44,6 +49,7 @@
             <Setter Property="Margin" Value="16"/>
             <Setter Property="Width" Value="350"/>
         </Style>
+        <!--Стили для элемента "ComboBox"-->
         <Style TargetType="ComboBox">
             <Setter Property="Foreground" Value="#FF243238"/>
             <Setter Property="FontSize" Value="22"/>
@@ -53,6 +59,7 @@
             <Setter Property="Margin" Value="16"/>
             <Setter Property="Width" Value="350"/>
         </Style>
+        <!--Стили для элемента "DatePicker"-->
         <Style TargetType="DatePicker">
             <Setter Property="Foreground" Value="#FF243238"/>
             <Setter Property="FontSize" Value="22"/>

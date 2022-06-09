@@ -20,7 +20,7 @@ namespace NevaTelecomv_1._0.pages
     /// </summary>
     public partial class AddEditOrder : Page
     {
-        private Order _curentOrder = new Order();
+        private Order _curentOrder = new Order(); //создание объекта Order
         public AddEditOrder(Order selectedOrder)
         {
             InitializeComponent();
@@ -52,7 +52,6 @@ namespace NevaTelecomv_1._0.pages
                    
             }
 
-
             if (selectedOrder == null)
             {
                 //находим абонента который прошел проверку
@@ -81,7 +80,6 @@ namespace NevaTelecomv_1._0.pages
             //получаем текст из выпадающего списка (вид услуги)
             GeneralPage.Global.vid_serv = CbVidServ.Text;
         }
-
         private void refrash_Click(object sender, RoutedEventArgs e)
         {
             //получаем текст из выпадающего списка (вид услуги)
@@ -130,14 +128,12 @@ namespace NevaTelecomv_1._0.pages
                 _curentOrder.date_end = null;
                 date_end.Text = null;
             }
-
             //если в контейнере есть ошибки то выводим их
             if (error.Length > 0)
             {
                 MessageBox.Show(error.ToString());
                 return;
             }
-
             //добавляем данные объекта в таблицу бд
             if (_curentOrder.id_order == 0)
                 NevaTelecom1Entities.GetContext().Orders.Add(_curentOrder);

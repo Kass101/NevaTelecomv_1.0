@@ -22,13 +22,12 @@ namespace NevaTelecomv_1._0.pages
     {
         public AbonentPage()
         {
-            InitializeComponent();
-            //кнопка активных абонентов выбрана
-            BtnActiv.IsChecked = true;
-            //вызов метода
-            update();
+            InitializeComponent(); 
+            BtnActiv.IsChecked = true;//кнопка активных абонентов выбрана
+            
+            update(); //вызов метода
         }
-
+        // метод который позволяет обновить данные DataGrid учитывая данные введеные для поиска
         private void update()
         {
             //переменная с данными абонентов где дата расторжения null
@@ -38,7 +37,6 @@ namespace NevaTelecomv_1._0.pages
             _curentAbonent = _curentAbonent.Where(p => p.fio.ToLower().Contains(Tb_fio.Text.ToLower())).ToList();
             //присваиваем списов абонентов таблице для отображения данных
             DGridAbonent.ItemsSource = _curentAbonent;
-
         }
         //переход на стр с подробной информацией
         private void more_Click(object sender, RoutedEventArgs e)
@@ -46,38 +44,32 @@ namespace NevaTelecomv_1._0.pages
             //передаем объект с данными с выбранной строки таблицы
             Navigation1.MainFrame1.Navigate(new pages.AbonentMore((sender as Button).DataContext as Abonent));
         }
-
         private void BtnActiv_Checked(object sender, RoutedEventArgs e)
         {
             //отображение в таблице активных пользователей
             DGridAbonent.ItemsSource = NevaTelecom1Entities.GetContext().Abonents.Where(p => p.date_end == null).ToList();
-
         }
-
         private void BtnUnActiv_Checked(object sender, RoutedEventArgs e)
         {
             //отображение в таблице неактивных пользователей
             DGridAbonent.ItemsSource = NevaTelecom1Entities.GetContext().Abonents.Where(p => p.date_end != null).ToList();
         }
-
         private void BtnAll_Checked(object sender, RoutedEventArgs e)
         {
             //отображение в таблице всех пользователей
             DGridAbonent.ItemsSource = NevaTelecom1Entities.GetContext().Abonents.ToList();
         }
-
         private void Btn_Add_exit_Click(object sender, RoutedEventArgs e)
         {
             //переход на страницу добавления/редактирования данных
-            //передаем пустой объект
-            Navigation1.MainFrame1.Navigate(new pages.AddEditAbonent(null));
+            Navigation1.MainFrame1.Navigate(new pages.AddEditAbonent(null));//передаем пустой объект
         }
-
+        //обработчик события при вводе информации в поле поиск по фамилии
         private void Tb_fio_SelectionChanged(object sender, RoutedEventArgs e)
         {
             update();
         }
-
+        //обработчик события при вводе информации в поле поиск по личному счету
         private void Tb_ls_SelectionChanged(object sender, RoutedEventArgs e)
         {
             update();
@@ -96,7 +88,7 @@ namespace NevaTelecomv_1._0.pages
             else
                 Navigation1.MainFrame1.Navigate(new pages.AddEditAbonent((sender as Button).DataContext as Abonent));
         }
-
+        //Если видимость страницы isVisible, мы будем обращаться к контексту с помощью свойства ChangeTracker ко всем сущностям, которые есть. И для каждой из них будем выполнять метод перезагрузки и вывода актуальных данных.
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)

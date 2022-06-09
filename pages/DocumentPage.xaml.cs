@@ -53,7 +53,6 @@ namespace NevaTelecomv_1._0.pages
                 }
             }
         }
-
         private void open_ButonClick(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog openFile =
@@ -70,7 +69,6 @@ namespace NevaTelecomv_1._0.pages
                     tr.Load(fs, DataFormats.Rtf);
                 }
             }
-
             // Копирование содержимого документа в MemoryStream. 
             using (MemoryStream stream = new MemoryStream())
             {
@@ -78,15 +76,12 @@ namespace NevaTelecomv_1._0.pages
                     richTextBox.Document.ContentEnd);
                 range.Save(stream, DataFormats.Xaml);
                 stream.Position = 0;
-
             }
         }
-
         private void new_ButonClick(object sender, RoutedEventArgs e)
         {
             richTextBox.Document = new FlowDocument();
         }
-
         private void print_ButonClick(object sender, RoutedEventArgs e)
         {
             PrintDialog pd = new PrintDialog();
@@ -97,7 +92,5 @@ namespace NevaTelecomv_1._0.pages
                 pd.PrintDocument((((IDocumentPaginatorSource)richTextBox.Document).DocumentPaginator), "printing as paginator");
             }
         }
-        
-
     }
 }

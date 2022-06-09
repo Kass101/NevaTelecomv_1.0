@@ -28,12 +28,12 @@ namespace NevaTelecomv_1._0.pages
             {
                 //отображаем заявки пренадлежащие определенному тех. спец.
                 DGOrder.ItemsSource = NevaTelecom1Entities.GetContext().Orders.Where(p => p.id_manager == EnterPage.Global.manager_id).ToList();
-                //скрываем кнопки (ограничиваем права)
-                AddOrder.Visibility = Visibility.Hidden;
+                AddOrder.Visibility = Visibility.Hidden;//скрываем кнопки (ограничиваем права)
                 edit.Visibility = Visibility.Hidden;
             }             
             else
             {
+                //присваиваем списов заявок таблице для отображения данных
                 DGOrder.ItemsSource = NevaTelecom1Entities.GetContext().Orders.ToList();
                 //скрываем кнопки (ограничиваем права)
                 if (EnterPage.Global.manager_role == "Руководитель технического департамента")
@@ -44,10 +44,9 @@ namespace NevaTelecomv_1._0.pages
             }
                 
         }
-        //переход на стр проверки абонента в системе
         private void AddOrder_Click(object sender, RoutedEventArgs e)
         {
-            Navigation1.MainFrame1.Navigate(new CheckAbonent());
+            Navigation1.MainFrame1.Navigate(new CheckAbonent());//переход на стр проверки абонента в системе
         }
         //переход на стр редактирования заявки
         private void edit_Click(object sender, RoutedEventArgs e)

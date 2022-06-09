@@ -8,7 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EnterPage">
 
-    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Background="#19FFFFFF">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <!--Разметка на стобцы и строки-->
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>

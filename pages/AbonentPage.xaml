@@ -14,7 +14,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-
         <Grid Grid.Row="0" Background="#7FB5DBFF">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

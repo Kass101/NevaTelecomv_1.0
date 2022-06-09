@@ -23,9 +23,9 @@ namespace NevaTelecomv_1._0.pages
         public EnterPage()
         {
             InitializeComponent();
+            //присваиваем значение глобальной переменной
             Global.codes = null;
         }
-
         //Создание глобальных переменных 
         public static class Global
         {
@@ -39,29 +39,32 @@ namespace NevaTelecomv_1._0.pages
         {
             Random random = new Random();
             Global.codes = random.Next(1000, 9999).ToString();
+            //вывод сообщения с кодом
             MessageBox.Show("Ваш код: " + Global.codes);
         }
-        //событие при нажатии на генерации кода 
         private void btnCode_Click(object sender, RoutedEventArgs e)
         {
-            gencode();
+            gencode(); //вызов метода генерации кода
         }
-
         private void enter_Click(object sender, RoutedEventArgs e)
         {
             using (var db = new NevaTelecom1Entities())
             {
+                // поиск совпадений введенного логина и логинов в БД
                 var login = db.Managers.AsNoTracking().FirstOrDefault(m => m.login == log.Text.Trim());
+                // поиск совпадений введенного логина и логинов в БД, а так же паролей
                 var manager = db.Managers.AsNoTracking().FirstOrDefault(m => m.login == log.Text.Trim() & (m.pass == pass.Password || m.pass == text_pass.Text));
 
                 if (login != null)
                 {
-                    Show.IsEnabled = true;
+                    // делаем кнопки активными
+                    Show.IsEnabled = true; 
                     pass.IsEnabled = true;
                     text_pass.IsEnabled = true;
                 }
                 else
                 {
+                    // блокируем кнопки
                     MessageBox.Show("Логин неверный");
                     Show.IsEnabled = false;
                     pass.IsEnabled = false;
@@ -69,8 +72,8 @@ namespace NevaTelecomv_1._0.pages
                     code.IsEnabled = false;
                     pass.IsEnabled = false;
                     btnCode.IsEnabled = false;
+                    Global.codes = null;
                 }
-
                 if (manager != null && Global.codes == null)
                 {
                     code.IsEnabled = true;
@@ -79,13 +82,15 @@ namespace NevaTelecomv_1._0.pages
                     gencode();
                 }    
                 else if (login != null && manager == null)
+                {
                     MessageBox.Show("Пароль неверный");
-
+                    Global.codes = null;
+                }
                 if (Global.codes != null)
                 {
                     if (Global.codes == code.Text & manager != null)
                     {
-                        //заносим данные в переменные о найденном пользователе
+                        //заносим данные пользователя глобальную переменную в переменную
                         Global.manager_role = manager.name_role;
                         Global.manager_id = manager.id_manager;
                         if (manager.name_role == "Технический специалист" || manager.name_role == "Руководитель технического департамента")
@@ -100,7 +105,6 @@ namespace NevaTelecomv_1._0.pages
                 }
             }
         }
-
         //обработчик события показа/скрытия пароля
         private void Show_Click(object sender, RoutedEventArgs e)
         {

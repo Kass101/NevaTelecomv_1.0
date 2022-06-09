@@ -20,7 +20,7 @@ namespace NevaTelecomv_1._0.pages
     /// </summary>
     public partial class AbonentMore : Page
     {
-        public Abonent _abonent = new Abonent();
+        public Abonent _abonent = new Abonent(); // создаем объект Abonent
         public AbonentMore(Abonent selectedAbonent)
         {
             InitializeComponent();

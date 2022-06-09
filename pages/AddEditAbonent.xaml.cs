@@ -21,14 +21,15 @@ namespace NevaTelecomv_1._0.pages
     /// </summary>
     public partial class AddEditAbonent : Page
     {
-        private Abonent _currentAbonent = new Abonent();
+        private Abonent _currentAbonent = new Abonent(); // создаем объект Abonent
         public AddEditAbonent(Abonent selectedAbonent)
         {
             InitializeComponent();
             //если переданный объект не пустой, значит происходит редактирование
             if (selectedAbonent != null)
             {
-                _currentAbonent = selectedAbonent;
+                // присваиваем полученные данные созданному ранее объекту
+                _currentAbonent = selectedAbonent; 
                 //отключаем кнопку генерации номера договора
                 gen_num.Visibility = Visibility.Hidden;
             }
@@ -55,8 +56,8 @@ namespace NevaTelecomv_1._0.pages
 
             //проверка введенных данных 
             if (string.IsNullOrWhiteSpace(_currentAbonent.number) )
-                errors.AppendLine("Введите № абонента");             
-
+                errors.AppendLine("Введите № абонента");
+            //если введеные данные фио содержат цифры
             if (string.IsNullOrWhiteSpace(_currentAbonent.fio) || Regex.Match(_currentAbonent.fio, "[0-9]").Success)
                 errors.AppendLine("Введите ФИО абонента");
 
@@ -65,7 +66,7 @@ namespace NevaTelecomv_1._0.pages
 
             if (_currentAbonent.birth == null)
                 errors.AppendLine("Выберите дату рождения");
-
+            //если введеные данные фио содержат буквы
             if (string.IsNullOrWhiteSpace(_currentAbonent.phone) || _currentAbonent.phone.Length != 11 ||
                 Regex.Match(_currentAbonent.phone, "[А-Я]").Success || Regex.Match(_currentAbonent.phone, "[а-я]").Success ||
                 Regex.Match(_currentAbonent.phone, "[a-z]").Success || Regex.Match(_currentAbonent.phone, "[A-Z]").Success)
@@ -77,15 +78,14 @@ namespace NevaTelecomv_1._0.pages
             if (string.IsNullOrWhiteSpace(_currentAbonent.address_reg))
                 errors.AppendLine("Введите адрес регистрации");
 
-
             if (string.IsNullOrWhiteSpace(_currentAbonent.address_live))
                 errors.AppendLine("Введите адрес жительства");
-
+            //если введеные данные фио содержат буквы
             if (string.IsNullOrWhiteSpace(_currentAbonent.pasport) || _currentAbonent.pasport.Length != 11 ||
                 Regex.Match(_currentAbonent.pasport, "[А-Я]").Success || Regex.Match(_currentAbonent.pasport, "[а-я]").Success ||
                 Regex.Match(_currentAbonent.pasport, "[a-z]").Success || Regex.Match(_currentAbonent.pasport, "[A-Z]").Success)
                 errors.AppendLine("Введите номер (4) и серия (6) через пробел");
-
+            //если введеные данные фио содержат буквы
             if (string.IsNullOrWhiteSpace(_currentAbonent.code_otdel) || _currentAbonent.code_otdel.Length != 7 ||
                 Regex.Match(_currentAbonent.code_otdel, "[А-Я]").Success || Regex.Match(_currentAbonent.code_otdel, "[а-я]").Success ||
                 Regex.Match(_currentAbonent.code_otdel, "[a-z]").Success || Regex.Match(_currentAbonent.code_otdel, "[A-Z]").Success)
@@ -105,7 +105,7 @@ namespace NevaTelecomv_1._0.pages
             
             if (_currentAbonent.DogovorType == null)
                 errors.AppendLine("Выберите тип договора");
-
+            //если введеные данные фио содержат буквы
             if (string.IsNullOrWhiteSpace(_currentAbonent.ls) ||
                 Regex.Match(_currentAbonent.ls, "[А-Я]").Success || Regex.Match(_currentAbonent.ls, "[а-я]").Success ||
                 Regex.Match(_currentAbonent.ls, "[a-z]").Success || Regex.Match(_currentAbonent.ls, "[A-Z]").Success)
@@ -136,13 +136,15 @@ namespace NevaTelecomv_1._0.pages
             }
 
             //добавляем данные объекта в таблицу бд
-            if (_currentAbonent.id_abon == 0)
+            if (_currentAbonent.id_abon == 0) // происходит во время добавления
             {
+                //добавляем данные объекта в таблицу бд
                 NevaTelecom1Entities.GetContext().Abonents.Add(_currentAbonent);
             }
             //конструктор для отлавливания системных ошибок (не было сбоя системы)    
             try
             {
+                //сохраняем изменения БД
                 NevaTelecom1Entities.GetContext().SaveChanges();
                 MessageBox.Show("Данные сохранены");
                 Navigation1.MainFrame1.Navigate(new pages.AbonentPage());
@@ -152,7 +154,7 @@ namespace NevaTelecomv_1._0.pages
                 MessageBox.Show(ex.ToString());
             }
         }
-        //кнопка дляперехода на стр абонентов
+        //кнопка для перехода на стр абонентов
         private void Btn_back_Click(object sender, RoutedEventArgs e)
         {
             Navigation1.MainFrame1.Navigate(new pages.AbonentPage());
@@ -164,6 +166,7 @@ namespace NevaTelecomv_1._0.pages
                 MessageBox.Show("Введите номер абонента");
             else
             {
+                // создаем номер договора, который состоит из номера абонента, месяца и года сосздания договора
                 dogovor.Text = _currentAbonent.number + "-" + DateTime.Now.Month.ToString() + " - " + DateTime.Now.Year.ToString();
                 _currentAbonent.num_dogovor = dogovor.Text;
             }

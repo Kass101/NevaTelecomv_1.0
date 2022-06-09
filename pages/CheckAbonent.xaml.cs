@@ -25,8 +25,7 @@ namespace NevaTelecomv_1._0.pages
             InitializeComponent();
         }
         private void BtnCheckOrder_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {   
             using (var db = new NevaTelecom1Entities())
             {
                 //поиск на совпадение введенных данных в БД
@@ -42,10 +41,9 @@ namespace NevaTelecomv_1._0.pages
                     MessageBox.Show("Абонент не найден");
             }
         }
-        //обработчик события на кнопку назад
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            Navigation1.MainFrame1.Navigate(new CRMPage());
+            Navigation1.MainFrame1.Navigate(new CRMPage());//обработчик события на кнопку назад
         }
     }
 }
